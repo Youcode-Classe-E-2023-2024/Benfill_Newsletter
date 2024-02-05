@@ -1,66 +1,42 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Internal Communication and Marketing Platform
+=============================================
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Overview
+--------
 
-## About Laravel
+Our client, a rapidly growing company in the communication and marketing sector, recognized the increasing need to centralize and streamline its online operations. To address this, the company decided to develop an internal web platform with advanced features to enhance communication, information management, and team collaboration.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Features
+--------
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1\. Newsletter Management (Spatie)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The platform allows the company to send regular newsletters to clients and partners. The integration of the Spatie Newsletter package is crucial for easy creation, sending, and tracking of newsletter campaigns. Intuitive and user-friendly subscription and mailing list management functionalities are implemented.
 
-## Learning Laravel
+### 2\. Authentication with Role Management (Policies and Guards)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Security and data privacy are paramount. The platform incorporates a robust authentication system with role-based management using Laravel's policies and guards. Three distinct roles are defined: Administrator, Editor, and Member, each with specific permissions to access and modify designated parts of the platform.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 3\. Forgot Password and Remember Me Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To ensure a seamless user experience, the platform includes "forgot password" functionality for users to reset their passwords and "remember me" functionality for automatic login.
 
-## Laravel Sponsors
+### 4\. Media Library (Spatie)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Media management is a key element of the platform. Spatie Media Library is utilized to enable users to upload, organize, and share multimedia files such as images, videos, and documents. Each media item is associated with a specific user or project.
 
-### Premium Partners
+### 5\. Soft Delete
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+To prevent accidental data loss, the platform implements the "soft delete" feature. Records are not physically deleted from the database but rather marked as deleted, providing the option to restore them if necessary.
 
-## Contributing
+### 6\. Middleware
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Middleware is employed to manage role-specific permissions, ensuring that each user has access only to the features authorized based on their role.
 
-## Code of Conduct
+### 7\. PDF Generation
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The platform can generate PDF files from specific data sets. For example, it can produce a monthly report aggregating newsletter campaign performances or a summary of uploaded media over a given period.
 
-## Security Vulnerabilities
+### 8\. Database Modeling with 3 Roles
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The database is structured to support the three defined roles (Administrator, Editor, Member). Each role has specific tables and relationships, ensuring a clear separation of data and responsibilities within the platform.
