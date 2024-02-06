@@ -37,3 +37,10 @@ Route::post('/forgot-password/{token}', [ForgotPasswordController::class, 'reset
 // members handling
 Route::post("members", [MembersController::class, "store"]);
 Route::get('/members', [MembersController::class, "index"]);
+
+//back office
+Route::get("back", function () {
+    return view("back_office.dashboard");
+});
+Route::post("template", [Mail_templateController::class, "store"]);
+
