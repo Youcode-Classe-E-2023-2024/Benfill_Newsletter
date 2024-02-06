@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string("content", 500);
             $table->bigInteger("creator")->unsigned();
             $table->foreign("creator")->references("id")->on("users");
-            $table->enum("status", ["published", "draft"]);
-            $table->enum("flag", ["active", "deleted"]);
+            $table->enum("status", ["published", "draft", "deleted"]);
             $table->integer("used")->default(0);
             $table->timestamps();
         });

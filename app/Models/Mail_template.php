@@ -13,7 +13,6 @@ class Mail_template extends Model
         'content',
         'creator',
         'status',
-        'flag',
         'used'
     ];
 }
