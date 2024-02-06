@@ -23,3 +23,12 @@ use App\Http\Controllers\Mail_templateController;
 Route::get('/', function () {
     return view('front_office.home');
 });
+
+// authentication
+Route::get("register", [RegisterController::class, 'create']);
+Route::post("register", [RegisterController::class, 'store']);
+Route::post('logout', [LogoutController::class, 'destroy'])
+    ->middleware('auth');
+Route::get("login", [LoginController::class, 'create']);
+Route::post('/forgot-password', [ForgotPasswordLinkController::class, 'store']);
+Route::post('/forgot-password/{token}', [ForgotPasswordController::class, 'reset']);
