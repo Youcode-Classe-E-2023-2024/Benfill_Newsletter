@@ -32,3 +32,8 @@ Route::post('logout', [LogoutController::class, 'destroy'])
 Route::get("login", [LoginController::class, 'create']);
 Route::post('/forgot-password', [ForgotPasswordLinkController::class, 'store']);
 Route::post('/forgot-password/{token}', [ForgotPasswordController::class, 'reset']);
+
+
+// members handling
+Route::post("members", [MembersController::class, "store"]);
+Route::get('/members', [MembersController::class, "index"]);
