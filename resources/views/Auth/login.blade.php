@@ -329,7 +329,7 @@
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <form class="form" method="post" action="login">
+        <form class="form" method="post" action="/login">
             @csrf
             <h3 class="text-black">Login Here</h3>
 
@@ -344,12 +344,12 @@
                    required>
 
             <div class="social bg-gray-200 hover:bg-gray-300 flex justify-center">
-                <button class="bg-gray" type="button" name="login" id="login-btn">Sign In</button>
+                <button class="bg-gray" name="login" id="login-btn">Sign In</button>
             </div>
             <div class="social items-center flex-col">
                 <p class="text-sm mb-4">Or</p>
                 <div class="w-full flex justify-center bg-gray-200 hover:bg-gray-300">
-                    <a href="index.php?page=register">
+                    <a href="/register">
                         <div class="cursor-pointer">Sign Up</div>
                     </a>
                 </div>
