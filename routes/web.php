@@ -25,22 +25,30 @@ Route::get('/', function () {
 });
 
 // authentication
-Route::get("register", [RegisterController::class, 'create']);
+Route::get("register", [RegisterController::class, 'create'])
+    ->middleware('guest');
 Route::post("register", [RegisterController::class, 'store']);
 Route::post('logout', [LogoutController::class, 'destroy'])
     ->middleware('auth');
-Route::get("login", [LoginController::class, 'create']);
-Route::post('/forgot-password', [ForgotPasswordLinkController::class, 'store']);
-Route::post('/forgot-password/{token}', [ForgotPasswordController::class, 'reset']);
+Route::get("login", [LoginController::class, 'create'])
+    ->middleware('guest');
+Route::post("login", [LoginController::class, 'authenticate'])->name("login");
 
+
+Route::post('/request', [ForgotPasswordLinkController::class, 'store']);
+Route::get('/request', [ForgotPasswordLinkController::class, 'create']);
+Route::post('/reset', [ForgotPasswordController::class, 'reset']);
+Route::get('password/reset/{token}', [ForgotPasswordController::class, 'create'])->name('password.reset');
 
 // members handling
 Route::post("members", [MembersController::class, "store"]);
-Route::get('/members', [MembersController::class, "index"]);
+Route::get('/members', [MembersController::class, "index"])
+    ->middleware('auth');
 
 //back office
 Route::get("back", function () {
     return view("back_office.dashboard");
-});
+})->middleware('auth');
+
 Route::post("template", [Mail_templateController::class, "store"]);
 
