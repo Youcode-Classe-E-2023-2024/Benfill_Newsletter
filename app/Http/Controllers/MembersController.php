@@ -2,62 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Members;
+use Illuminate\Http\Request;
+use App\Events\Subscribed;
 
 class MembersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $members = Members::all();
-        return view("front_office.home", compact("members"));
-    }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $member = $request->validate([
+        $memberData = $request->validate([
            "email" => 'required|email|unique:members'
         ]);
 
-        Members::create($member);
+        $member = Members::create([
+            'email' => $memberData['email']
+        ]);
+
+        $evtee = event(new Subscribed($member));
+
         return view("front_office.home");
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    function unsubscribe($email) {
+        $member = Members::where("email", $email)->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        if ($member) {
+            $member->status = "unsubscribed";
+            $member->save();
+        }
+        return view("mail.unsubscribed", compact('email'));
     }
+    function cancelUnsubscription($email) {
+        $member = Members::where("email", $email)->first();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        if ($member) {
+            $member->status = "subscribed";
+            $member->save();
+        }
+        return view('/front_office.home');
     }
 }
