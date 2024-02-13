@@ -11,9 +11,12 @@ class sidebar extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $admin;
+    public $members;
+    public function __construct($admin, $members)
     {
-        //
+        $this->admin = $admin;
+        $this->members = $members;
     }
 
     /**
