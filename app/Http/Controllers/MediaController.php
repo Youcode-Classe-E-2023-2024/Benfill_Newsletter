@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\media;
+use App\Models\Medias;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MediaController extends Controller
 {
@@ -20,30 +23,13 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userId = Auth::id();
+        $media = Medias::create([
+            "user_id" => $userId
+        ]);
+
+        $media->addMediaFromRequest('files')->toMediaCollection();
+        return back()->with(["status", "success"]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(media $create_media_table)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, media $create_media_table)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(media $create_media_table)
-    {
-        //
-    }
 }
