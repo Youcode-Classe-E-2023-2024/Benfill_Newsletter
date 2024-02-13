@@ -6,11 +6,12 @@
         }
     </style>
     <div class="min-h-screen flex flex-row bg-gray-100">
-        <x-sidebar/>
+        <x-sidebar :admin="$admin" :members="$members"/>
 
-        <div class="flex-col justify-center w-full">
+        <div class="flex-col justify-center  w-full">
             <!-- Snippet -->
             <section
+                id="analyticsSection"
                 class="flex flex-col antialiased bg-gray-100 text-gray-600 ">
                 <div class="max-w-3xl mx-auto p-4 sm:px-6 h-full">
                     <!-- Chart widget -->
@@ -69,7 +70,13 @@
                     </div>
                 </div>
             </section>
-            <x-media/>
+            <x-media :medias="$medias"/>
+            <x-mediaForm/>
+            <x-editorForm/>
+            <x-template :templates="$templates"/>
+            <x-users :users="$users" />
+            <x-members :members="$members" />
         </div>
     </div>
+    <script src="assets/js/admin/dashboard.js"></script>
 @stop
