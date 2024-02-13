@@ -37,7 +37,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
         Auth::login($user);
-
+        $user->assignRole('editor');
         return redirect(RouteServiceProvider::DASHBOARD);
     }
 }
