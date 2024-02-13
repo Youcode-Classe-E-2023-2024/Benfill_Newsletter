@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\MembersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordLinkController;
-use App\Http\Controllers\MembersController;
 use App\Http\Controllers\Mail_templateController;
+use  App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +46,21 @@ Route::get('password/reset/{token}', [ForgotPasswordController::class, 'create']
 Route::post("members", [MembersController::class, "store"]);
 Route::get('/members', [MembersController::class, "index"])
     ->middleware('auth');
+Route::get('unsubscribe/{email}', [MembersController::class, "unsubscribe"]);
+Route::get('cancel/{email}', [MembersController::class, "cancelUnsubscription"]);
+
 
 //back office
-Route::get("back", function () {
-    return view("back_office.dashboard");
-})->middleware('auth');
+Route::get("back", [DashboardController::class, "index"])->middleware('auth');
 
 Route::post("template", [Mail_templateController::class, "store"]);
 
+
+// Media Handling
+Route::post('/media', [MediaController::class, 'store']);
+
+Route::group(['middleware' => ['role:manager']], function () {
+    Route::get("test", function () {
+        dd("test");
+    });
+});
