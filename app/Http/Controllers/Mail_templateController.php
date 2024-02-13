@@ -16,7 +16,7 @@ class Mail_templateController extends Controller
         $template = new Mail_template;
         $request->validate([
             "title" => "required|unique:mail_templates|min:3",
-            "content" => "required|min:12|max:500"
+            "content" => "required|min:12"
         ]);
 
         $template->title = $request->title;
@@ -25,6 +25,6 @@ class Mail_templateController extends Controller
         $template->status = $request->action;
         $template->save();
 
-        return view("front_office.home")->with('status', $request->action);
+        return back()->with('status', $request->action);
     }
 }
