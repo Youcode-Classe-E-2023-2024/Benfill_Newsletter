@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string("email");
-            $table->enum("status", ["subscribed", "unsubscribed"]);
+            $table->enum("status", ["subscribed.blade.php", "unsubscribed"]);
             $table->timestamps();
         });
     }
