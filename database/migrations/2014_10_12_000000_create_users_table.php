@@ -20,6 +20,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table("users")->insert([
+           "name" => "anass",
+           "email" => "anass@gmail.com",
+           "password" => \Illuminate\Support\Facades\Hash::make("anass@gmail.com")
+        ]);
     }
 
     /**
