@@ -4,22 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    static function getRole($userId) {
-        $user = User::find($userId);
-        if (!$user) {
-            // User not found
-            return "unknown";
-        }
-
-        if ($user->hasRole("admin")) {
-            $role = "admin";
-        } else {
-            $role = "editor";
-        }
-
-        return $role;
+    function updateRole(Request $request) {
+        $user = User::find($request->userId);
+        $role = Role::find($request->roleValue);
+        $user->removeRole($user->roles->first());$user->assignRole($role->name);
+        return json_encode("success");
     }
 }
