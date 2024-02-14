@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
@@ -17,6 +18,7 @@ class DashboardController extends Controller
         $members = Members::all();
         $templates = Mail_template::all();
         $medias = Media::all();
-        return view("back_office.dashboard", compact("admin", "users", "members", "templates", "medias"));
+        $roles = Role::all();
+        return view("back_office.dashboard", compact("admin", "users", "members", "templates", "medias", "roles"));
     }
 }
