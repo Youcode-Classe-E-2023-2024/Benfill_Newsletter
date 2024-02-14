@@ -13,10 +13,12 @@ class sidebar extends Component
      */
     public $admin;
     public $members;
-    public function __construct($admin, $members)
+    public $medias;
+    public function __construct($admin, $members, $medias)
     {
         $this->admin = $admin;
         $this->members = $members;
+        $this->medias = $medias;
     }
 
     /**
