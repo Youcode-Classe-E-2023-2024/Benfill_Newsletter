@@ -9,13 +9,15 @@ use Illuminate\View\Component;
 class users extends Component
 {
     public $users;
+    public $roles;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($users)
+    public function __construct($users, $roles)
     {
         $this->users = $users;
+        $this->roles = $roles;
     }
 
     /**
