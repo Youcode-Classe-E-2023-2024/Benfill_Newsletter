@@ -23,6 +23,9 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'files' => 'required|file'
+        ]);
         $userId = Auth::id();
         $media = Medias::create([
             "user_id" => $userId
@@ -31,5 +34,4 @@ class MediaController extends Controller
         $media->addMediaFromRequest('files')->toMediaCollection();
         return back()->with(["status", "success"]);
     }
-
 }
