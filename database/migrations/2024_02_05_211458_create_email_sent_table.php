@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mail_sent', function (Blueprint $table) {
+        Schema::create('mail_sents', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("member")->unsigned();
             $table->bigInteger("mail_template")->unsigned();
