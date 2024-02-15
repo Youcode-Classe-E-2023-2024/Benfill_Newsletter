@@ -36,7 +36,7 @@
                 <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i
                         class="fa-solid fa-photo-film" style="color: #8f8f8f;"></i></span>
                 <span class="text-sm font-medium">Media</span>
-                <span class="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">5</span>
+                <span class="ml-auto mr-6 text-sm bg-blue-100 rounded-full px-3 py-px text-blue-500">{{count($medias)}}</span>
             </a>
         </li>
 
