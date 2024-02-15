@@ -77,6 +77,7 @@
             <x-users :users="$users" :roles="$roles"/>
             <x-members :members="$members" />
             <x-mail-form :medias="$medias" :templates="$templates"/>
+
         </div>
     </div>
 @stop
