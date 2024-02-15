@@ -6,7 +6,7 @@
         }
     </style>
     <div class="min-h-screen flex flex-row bg-gray-100">
-        <x-sidebar :admin="$admin" :members="$members"/>
+        <x-sidebar :admin="$admin" :members="$members" :medias="$medias"/>
 
         <div class="flex-col justify-center  w-full">
             <!-- Snippet -->
@@ -74,9 +74,8 @@
             <x-mediaForm/>
             <x-editorForm/>
             <x-template :templates="$templates"/>
-            <x-users :users="$users" />
+            <x-users :users="$users" :roles="$roles"/>
             <x-members :members="$members" />
         </div>
     </div>
-    <script src="assets/js/admin/dashboard.js"></script>
 @stop
