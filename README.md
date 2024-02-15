@@ -1,5 +1,6 @@
 Internal Communication and Marketing Platform
 =============================================
+![Uploading Newsletter.png…]()
 
 Overview
 --------
