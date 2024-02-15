@@ -6,7 +6,7 @@
             <div class="flex flex-row gap-2">
 
                 <div id="listButton"
-                        class="cursor-pointer text-blue-600 w-4 h-4">
+                     class="cursor-pointer text-blue-600 w-4 h-4">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-ul" role="img"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                          class="svg-inline--fa fa-list-ul fa-lg">
@@ -16,7 +16,7 @@
                     </svg>
                 </div>
                 <div id="cardButton"
-                        class="cursor-pointer text-blue-600 w-4 h-4">
+                     class="cursor-pointer text-blue-600 w-4 h-4">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid" role="img"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-grid fa-lg">
                         <path fill="currentColor"
@@ -55,7 +55,7 @@
 
     <!-- component -->
     <div id="cardSection"
-            class="hidden h-screen flex bg-gray-900 items-center justify-center">
+         class="hidden h-screen flex bg-gray-900 items-center justify-center">
         <div class="grid grid-cols-12 gap-2 gap-y-4 max-w-6xl">
 
             @foreach($medias as $media)
@@ -68,7 +68,8 @@
                                 @if(str_contains($media["mime_type"], 'image'))
                                     <img src="{{getPicUrl($media['id'], $media['file_name'])}}" class="w-96 h-auto"/>
                                 @else
-                                    <img src="{{asset("storage/360_F_484887682_Mx57wpHG4lKrPAG0y7Q8Q7bJ952J3TTO.jpg")}}" class="w-76"/>
+                                    <img src="{{asset("storage/360_F_484887682_Mx57wpHG4lKrPAG0y7Q8Q7bJ952J3TTO.jpg")}}"
+                                         class="w-76"/>
                                 @endif
 
                             </a>
@@ -84,7 +85,7 @@
     </div>
 
     <div id="listSection"
-            class="flex flex-col mt-6">
+         class="flex flex-col mt-6">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg">
