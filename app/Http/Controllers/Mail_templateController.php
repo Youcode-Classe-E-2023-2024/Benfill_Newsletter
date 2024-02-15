@@ -50,11 +50,7 @@ class Mail_templateController extends Controller
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');
 
-// Render the HTML as PDF
         $dompdf->render();
-
-// Download the generated PDF
         $dompdf->stream($title . ".pdf");
-        $dompdf->render();
     }
 }
