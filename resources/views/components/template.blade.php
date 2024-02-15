@@ -118,11 +118,24 @@
                                     <p class="text-sm leading-none text-gray-600 ml-2">{{$template['used']}}</p>
                                 </div>
                             </td>
-                            <td class="pl-4">
-                                <button
-                                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">
+                            <td class="pl-4 flex ">
+                                <a href="/template/{{$template['id']}}" target="_blank"
+                                    class="focus:ring-2 w-24 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">
                                     View
-                                </button>
+                                </a>
+
+                                <form action="/template/download/{{$template['id']}}" method="get">
+                                    @csrf
+                                    <button
+                                        class="px-2 py-3 bg-blue-600 w-24 rounded-md text-white focus:ring-4 shadow-lg transform transition-transform flex"
+                                    >
+                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                        </svg>
+
+                                        <span class="ml-2">Download</span>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         <tr class="h-3"></tr>
