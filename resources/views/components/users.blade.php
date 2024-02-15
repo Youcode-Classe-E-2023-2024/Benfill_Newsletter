@@ -1,7 +1,7 @@
 <section id="roleSection" class="hidden container px-4 mx-auto">
     <div class="flex items-center gap-x-3">
         <h2 class="text-lg font-medium text-gray-800 dark:text-white">Team members</h2>
-        <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">100
+        <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{{count($users)}}
             users</span>
     </div>
 
@@ -100,11 +100,10 @@
                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                     <select data-user-id="{{$user['id']}}"
                                             class="roleSelect block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                                        <option
-                                            class="hidden"
-                                            value="{{ getRole($user['id']) }}">{{ getRole($user['id']) }}</option>
+                                        <option value="" selected disabled hidden>{{ getRole($user['id']) }}</option>
                                         @foreach($roles as $role)
-                                            <option class="option" value="{{$role['id']}}">{{$role['name']}}</option>
+                                            <option class="option"
+                                                    value="{{$role['id']}}">{{$role['name']}}</option>
                                         @endforeach
                                     </select>
                                 </td>
