@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -64,3 +65,5 @@ Route::group(['middleware' => ['role:manager']], function () {
         dd("test");
     });
 });
+
+Route::put('/role', [UserController::class, "updateRole"]);
