@@ -25,7 +25,7 @@ use  App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('front_office.home');
-});
+})->middleware('guest');
 
 // authentication
 Route::get("register", [RegisterController::class, 'create'])
