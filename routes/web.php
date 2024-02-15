@@ -69,3 +69,6 @@ Route::group(['middleware' => ['role:manager']], function () {
 Route::put('/role', [UserController::class, "updateRole"]);
 
 Route::post('/sendMail', [MembersController::class, 'sendMail']);
+
+Route::get('/template/{id}', [Mail_templateController::class, "show"]);
+Route::get('/template/download/{id}', [Mail_templateController::class, "download"]);
