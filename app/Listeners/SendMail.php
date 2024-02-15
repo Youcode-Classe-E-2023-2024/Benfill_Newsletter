@@ -23,6 +23,6 @@ class SendMail
      */
     public function handle(Subscribed $event)
     {
-        $test = Mail::to($event->email)->send(new subscribedMessage($event->email));
+        Mail::to($event->email)->send(new subscribedMessage($event->email));
     }
 }
