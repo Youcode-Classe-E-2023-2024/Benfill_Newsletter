@@ -29,6 +29,11 @@ let listButton = document.getElementById('listButton');
 let cardSection = document.getElementById('cardSection');
 let cardButton = document.getElementById('cardButton');
 
+// mail form
+let mailForm = document.getElementById('mailForm');
+let mailButton = document.getElementById('mailButton');
+let mailFormCancelButton = document.getElementById('mailFormCancelButton');
+
 $(mediaButton).on('click', () => {
     mediaSection.classList.remove("hidden");
     analyticsSection.classList.add("hidden");
@@ -37,7 +42,7 @@ $(mediaButton).on('click', () => {
     membersSection.classList.add("hidden");
     templateForm.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 $(mediaFormButton).on('click', () => {
     mediaFormSection.classList.remove("hidden");
@@ -48,11 +53,12 @@ $(mediaFormButton).on('click', () => {
     roleSection.classList.add("hidden");
     membersSection.classList.add("hidden");
     templateForm.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 $(mediaFormCancelButton).on('click', () => {
     mediaFormSection.classList.add("hidden");
     mediaSection.classList.remove("hidden");
+    mailForm.classList.add("hidden");
 })
 
 $(mediaButton).on('click', () => {
@@ -63,7 +69,7 @@ $(mediaButton).on('click', () => {
     membersSection.classList.add("hidden");
     templateForm.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 
 $(dashboardButton).on('click', () => {
@@ -74,7 +80,7 @@ $(dashboardButton).on('click', () => {
     membersSection.classList.add("hidden");
     templateForm.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 
 $(templateButton).on('click', () => {
@@ -85,7 +91,7 @@ $(templateButton).on('click', () => {
     membersSection.classList.add("hidden");
     templateForm.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 
 $(addTemplateButton).on('click', () => {
@@ -96,7 +102,7 @@ $(addTemplateButton).on('click', () => {
     roleSection.classList.add("hidden");
     membersSection.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 
 $(roleButton).on('click', () => {
@@ -107,7 +113,7 @@ $(roleButton).on('click', () => {
     membersSection.classList.add("hidden");
     templateForm.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 
 $(membersButton).on('click', () => {
@@ -118,16 +124,27 @@ $(membersButton).on('click', () => {
     roleSection.classList.add("hidden");
     templateForm.classList.add("hidden");
     mediaFormSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 
 $(cardButton).on('click', () => {
     cardSection.classList.remove("hidden");
     listSection.classList.add("hidden");
-
+    mailForm.classList.add("hidden");
 })
 $(listButton).on('click', () => {
     listSection.classList.remove("hidden");
     cardSection.classList.add("hidden");
+    mailForm.classList.add("hidden");
+})
 
+
+$(mailButton).on('click', () => {
+    mailForm.classList.remove("hidden");
+    membersSection.classList.add("hidden");
+
+})
+$(mailFormCancelButton).on('click', () => {
+    membersSection.classList.remove("hidden");
+    mailForm.classList.add("hidden");
 })
