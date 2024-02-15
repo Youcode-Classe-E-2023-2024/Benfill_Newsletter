@@ -15,6 +15,6 @@ class AdminSeeder extends Seeder
     {
         $firstUser = User::first();
 
-        $firstUser->assignRole('admin');
+        $firstUser->assignRole("admin", "editor", "author");
     }
 }
