@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mail_sent;
 use App\Models\Mail_template;
 use App\Models\Members;
 use App\Models\User;
@@ -19,6 +20,8 @@ class DashboardController extends Controller
         $templates = Mail_template::all();
         $medias = Media::all();
         $roles = Role::all();
-        return view("back_office.dashboard", compact("admin", "users", "members", "templates", "medias", "roles"));
+        $mail_sent = mail_sent::all();
+
+        return view("back_office.dashboard", compact("admin", "users", "members", "templates", "medias", "roles", "mail_sent"));
     }
 }
