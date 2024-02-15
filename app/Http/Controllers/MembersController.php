@@ -64,6 +64,6 @@ class MembersController extends Controller
             $email = $member->email;
             Mail::to($member->email)->send(new newsletter($email, $template, $media));
         }
-
+        return back();
     }
 }
