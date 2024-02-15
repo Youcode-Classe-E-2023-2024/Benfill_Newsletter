@@ -12,7 +12,8 @@ if (!function_exists('getPicUrl')) {
 
 
 if (!function_exists('getRole')) {
-    function getRole($userId) {
+    function getRole($userId)
+    {
         $user = User::find($userId);
         if (!$user) {
             // User not found
@@ -21,6 +22,8 @@ if (!function_exists('getRole')) {
 
         if ($user->hasRole("admin")) {
             $role = "admin";
+        } elseif ($user->hasRole("author")) {
+            $role = "author";
         } else {
             $role = "editor";
         }
