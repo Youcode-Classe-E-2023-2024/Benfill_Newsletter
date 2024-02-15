@@ -1,6 +1,7 @@
 Internal Communication and Marketing Platform
 =============================================
-![Uploading Newsletter.png…]()
+![Newsletter](https://github.com/Youcode-Classe-E-2023-2024/Benfill_Newsletter/assets/109225791/d89c38f1-3b6f-42b4-9c8f-d688ea6c6f90)
+
 
 Overview
 --------
