@@ -26,12 +26,8 @@
                 </div>
             </div>
         </div>
-
+        @role("editor")
         <div class="flex items-center mt-4 gap-x-3">
-            <button
-                class="w-1/2 px-5 py-2 text-sm text-gray-800 transition-colors duration-200 bg-white border rounded-lg sm:w-auto hover:bg-gray-100">
-                Download all
-            </button>
 
             <button id="mediaFormButton"
                     class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg sm:w-auto gap-x-2 hover:bg-blue-600">
@@ -51,6 +47,7 @@
                 <span>Upload</span>
             </button>
         </div>
+        @endrole
     </div>
 
     <!-- component -->
