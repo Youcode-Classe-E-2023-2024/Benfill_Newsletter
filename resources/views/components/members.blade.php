@@ -2,8 +2,8 @@
          class="hidden container px-4 mx-auto mt-6">
     <div class="flex justify-between mx-6">
         <div class="flex items-center gap-x-3">
-            <h2 class="text-lg font-medium text-gray-800 ">Team members</h2>
-            <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">100 users</span>
+            <h2 class="text-lg font-medium text-gray-800 ">Subscribers List</h2>
+            <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">{{count($members)}} Members</span>
         </div>
         <div class="mr-6">
             <button id="mailButton" class="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg sm:w-auto gap-x-2 hover:bg-blue-600">Send Mail</button>
