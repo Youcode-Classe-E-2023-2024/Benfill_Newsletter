@@ -1,15 +1,40 @@
 <section id="mediaSection" class="container hidden px-4 mx-auto">
     <div class="sm:flex sm:items-center sm:justify-between">
-        <h2 class="text-lg font-medium text-gray-800 dark:text-white">Files uploaded</h2>
+        <div>
+            <h2 class="text-lg font-medium text-gray-800">Files uploaded</h2>
+
+            <div class="flex flex-row gap-2">
+
+                <div id="listButton"
+                        class="cursor-pointer text-blue-600 w-4 h-4">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-ul" role="img"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                         class="svg-inline--fa fa-list-ul fa-lg">
+                        <path fill="currentColor"
+                              d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"
+                              class=""></path>
+                    </svg>
+                </div>
+                <div id="cardButton"
+                        class="cursor-pointer text-blue-600 w-4 h-4">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid" role="img"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-grid fa-lg">
+                        <path fill="currentColor"
+                              d="M0 72C0 49.9 17.9 32 40 32H88c22.1 0 40 17.9 40 40v48c0 22.1-17.9 40-40 40H40c-22.1 0-40-17.9-40-40V72zM0 232c0-22.1 17.9-40 40-40H88c22.1 0 40 17.9 40 40v48c0 22.1-17.9 40-40 40H40c-22.1 0-40-17.9-40-40V232zM128 392v48c0 22.1-17.9 40-40 40H40c-22.1 0-40-17.9-40-40V392c0-22.1 17.9-40 40-40H88c22.1 0 40 17.9 40 40zM160 72c0-22.1 17.9-40 40-40h48c22.1 0 40 17.9 40 40v48c0 22.1-17.9 40-40 40H200c-22.1 0-40-17.9-40-40V72zM288 232v48c0 22.1-17.9 40-40 40H200c-22.1 0-40-17.9-40-40V232c0-22.1 17.9-40 40-40h48c22.1 0 40 17.9 40 40zM160 392c0-22.1 17.9-40 40-40h48c22.1 0 40 17.9 40 40v48c0 22.1-17.9 40-40 40H200c-22.1 0-40-17.9-40-40V392zM448 72v48c0 22.1-17.9 40-40 40H360c-22.1 0-40-17.9-40-40V72c0-22.1 17.9-40 40-40h48c22.1 0 40 17.9 40 40zM320 232c0-22.1 17.9-40 40-40h48c22.1 0 40 17.9 40 40v48c0 22.1-17.9 40-40 40H360c-22.1 0-40-17.9-40-40V232zM448 392v48c0 22.1-17.9 40-40 40H360c-22.1 0-40-17.9-40-40V392c0-22.1 17.9-40 40-40h48c22.1 0 40 17.9 40 40z"
+                              class=""></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
 
         <div class="flex items-center mt-4 gap-x-3">
             <button
-                class="w-1/2 px-5 py-2 text-sm text-gray-800 transition-colors duration-200 bg-white border rounded-lg sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-white dark:border-gray-700">
+                class="w-1/2 px-5 py-2 text-sm text-gray-800 transition-colors duration-200 bg-white border rounded-lg sm:w-auto hover:bg-gray-100">
                 Download all
             </button>
 
             <button id="mediaFormButton"
-                    class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                    class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg sm:w-auto gap-x-2 hover:bg-blue-600">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_3098_154395)">
                         <path
@@ -28,39 +53,70 @@
         </div>
     </div>
 
-    <div class="flex flex-col mt-6">
+    <!-- component -->
+    <div id="cardSection"
+            class="hidden h-screen flex bg-gray-900 items-center justify-center">
+        <div class="grid grid-cols-12 gap-2 gap-y-4 max-w-6xl">
+
+            @foreach($medias as $media)
+                <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                    <card class="w-full flex flex-col">
+                        <div class="relative">
+
+                            <!-- Image Video -->
+                            <a href="#">
+                                @if(str_contains($media["mime_type"], 'image'))
+                                    <img src="{{getPicUrl($media['id'], $media['file_name'])}}" class="w-96 h-auto"/>
+                                @else
+                                    <img src="{{asset("storage/360_F_484887682_Mx57wpHG4lKrPAG0y7Q8Q7bJ952J3TTO.jpg")}}" class="w-76"/>
+                                @endif
+
+                            </a>
+
+                            @if(str_contains($media["mime_type"], 'video'))
+                                <p class="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py">1:15</p>
+                            @endif
+                        </div>
+                    </card>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div id="listSection"
+            class="flex flex-col mt-6">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-800">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
                         <tr>
                             <th scope="col"
-                                class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
                                 <div class="flex items-center gap-x-3">
                                     <input type="checkbox"
-                                           class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
+                                           class="text-blue-500 border-gray-300 rounded">
                                     <span>File name</span>
                                 </div>
                             </th>
 
                             <th scope="col"
-                                class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                                 File size
                             </th>
 
                             <th scope="col"
-                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                                 Date uploaded
                             </th>
 
                             <th scope="col"
-                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                                 Last updated
                             </th>
 
                             <th scope="col"
-                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                                 Uploaded by
                             </th>
 
@@ -69,20 +125,20 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                        <tbody class="bg-white divide-y divide-gray-200">
                         @foreach($medias as $media)
                             <tr>
                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                     <div class="inline-flex items-center gap-x-3">
                                         <input type="checkbox"
-                                               class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
+                                               class="text-blue-500 border-gray-300 rounded dark:border-gray-700">
 
                                         <div class="flex items-center gap-x-2">
 
                                             @if(str_contains($media["mime_type"], "application"))
                                                 {{--file--}}
                                                 <div
-                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
+                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
                                                          stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -93,7 +149,7 @@
                                             @elseif(str_contains($media["mime_type"], "image"))
                                                 {{--image--}}
                                                 <div
-                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
+                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
                                                          stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -106,7 +162,7 @@
                                             @elseif(str_contains($media["mime_type"], "gif"))
 
                                                 <div
-                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
+                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
                                                          stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -118,7 +174,7 @@
 
                                                 {{--video--}}
                                                 <div
-                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
+                                                    class="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
                                                          stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -129,8 +185,8 @@
                                             @endif
 
                                             <div>
-                                                <h2 class="font-normal text-gray-800 dark:text-white ">{{strlen($media["file_name"]) < 35 ? $media["file_name"] : substr($media["file_name"], 0, 20) . "..."}}</h2>
-                                                <p class="text-xs font-normal text-gray-500 dark:text-gray-400">{{$media["size"]}}
+                                                <h2 class="font-normal text-gray-800">{{strlen($media["file_name"]) < 35 ? $media["file_name"] : substr($media["file_name"], 0, 20) . "..."}}</h2>
+                                                <p class="text-xs font-normal text-gray-500">{{$media["size"]}}
                                                     KB</p>
                                             </div>
                                         </div>
@@ -139,16 +195,16 @@
                                 <td class="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">
                                     {{$media["size"]}} KB
                                 </td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{$media["created_at"]}}
+                                <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">{{$media["created_at"]}}
                                 </td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{$media["updated_at"]}}
+                                <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">{{$media["updated_at"]}}
                                 </td>
-                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Lana
+                                <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">Lana
                                     Steiner
                                 </td>
                                 <td class="px-4 py-4 text-sm whitespace-nowrap">
                                     <button
-                                        class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
+                                        class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -167,7 +223,7 @@
 
     <div class="flex items-center justify-between mt-6">
         <a href="#"
-           class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+           class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"/>
@@ -179,23 +235,23 @@
         </a>
 
         <div class="items-center hidden md:flex gap-x-3">
-            <a href="#" class="px-2 py-1 text-sm text-blue-500 rounded-md dark:bg-gray-800 bg-blue-100/60">1</a>
+            <a href="#" class="px-2 py-1 text-sm text-blue-500 rounded-md bg-blue-100/60">1</a>
             <a href="#"
-               class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">2</a>
+               class="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100">2</a>
             <a href="#"
-               class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">3</a>
+               class="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100">3</a>
             <a href="#"
-               class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">...</a>
+               class="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100">...</a>
             <a href="#"
-               class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">12</a>
+               class="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100">12</a>
             <a href="#"
-               class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">13</a>
+               class="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100">13</a>
             <a href="#"
-               class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">14</a>
+               class="px-2 py-1 text-sm text-gray-500 rounded-md hover:bg-gray-100">14</a>
         </div>
 
         <a href="#"
-           class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+           class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100">
             <span>
                 Next
             </span>
