@@ -1,23 +1,27 @@
 @extends('layouts.default')
 @section("content")
 
-    <main>
-        <div class="flex justify-end mx-2 my-4">
-            @if(Auth::check())
-                <form action="/logout" method="post">
-                    @csrf
-                    <button
-                        class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-lg hover:bg-red-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                        Logout
-                    </button>
-                </form>
-            @else
-                <a href="/login"
-                   class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                    Login
-                </a>
-            @endif
+    <main class="h-full">
+        <div class="flex items-center justify-between px-16 h-20 w-full shadow-md">
+            <h1 class="text-3xl uppercase text-indigo-500">Newsletter</h1>
+            <div>
+                @if(Auth::check())
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button
+                            class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-lg hover:bg-red-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                            Logout
+                        </button>
+                    </form>
+                @else
+                    <a href="/login"
+                       class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Login
+                    </a>
+                @endif
+            </div>
         </div>
+        <x-hero/>
         <div class="bg-white dark:bg-gray-800">
             <div class="relative px-4 py-6 overflow-hidden sm:px-6 sm:py-8 lg:p-12 xl:p-16">
                 <h2 class="text-2xl font-semibold font-display text-black dark:text-white sm:text-3xl">
@@ -47,14 +51,11 @@
                     </div>
                 </form>
                 <div class="absolute inset-y-0 right-0 hidden lg:block lg:left-2/3 xl:left-1/2">
-                    <picture>
-                        <source srcSet="/images/object/5.webp" type="image/webp"/>
-                        <source srcSet="/images/object/5.png"/>
-                        <img class="object-cover w-1/2 mx-auto maw-w-44" src="/images/object/5.png"
-                             alt="shopping item"/>
-                    </picture>
+                    <img class="object-cover w-1/2 mx-auto maw-w-44" src="{{asset("storage/Newsletter.png")}}"
+                         alt="shopping item"/>
                 </div>
             </div>
         </div>
     </main>
+    <x-footer/>
 @stop
