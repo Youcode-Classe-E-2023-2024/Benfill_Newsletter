@@ -26,10 +26,9 @@
                                 <div class="flex items-center py-2">
                                     <div class="mr-5">
                                         <div class="flex items-center">
-                                            <div class="text-3xl font-bold text-gray-800 mr-2">24.7K</div>
-                                            <div class="text-sm font-medium text-green-500">+49%</div>
+                                            <div class="text-3xl font-bold text-gray-800 mr-2">{{count($templates)}}</div>
                                         </div>
-                                        <div class="text-sm text-gray-500">Unique Visitors</div>
+                                        <div class="text-sm text-gray-500">Templates</div>
                                     </div>
                                     <div class="hidden md:block w-px h-8 bg-gray-200 mr-5" aria-hidden="true"></div>
                                 </div>
@@ -37,10 +36,9 @@
                                 <div class="flex items-center py-2">
                                     <div class="mr-5">
                                         <div class="flex items-center">
-                                            <div class="text-3xl font-bold text-gray-800 mr-2">56.9K</div>
-                                            <div class="text-sm font-medium text-green-500">+7%</div>
+                                            <div class="text-3xl font-bold text-gray-800 mr-2">{{count($mail_sent)}}</div>
                                         </div>
-                                        <div class="text-sm text-gray-500">Total Pageviews</div>
+                                        <div class="text-sm text-gray-500">Email Sent</div>
                                     </div>
                                     <div class="hidden md:block w-px h-8 bg-gray-200 mr-5" aria-hidden="true"></div>
                                 </div>
@@ -48,10 +46,9 @@
                                 <div class="flex items-center py-2">
                                     <div class="mr-5">
                                         <div class="flex items-center">
-                                            <div class="text-3xl font-bold text-gray-800 mr-2">54%</div>
-                                            <div class="text-sm font-medium text-yellow-500">-7%</div>
+                                            <div class="text-3xl font-bold text-gray-800 mr-2">{{count($users)}}</div>
                                         </div>
-                                        <div class="text-sm text-gray-500">Bounce Rate</div>
+                                        <div class="text-sm text-gray-500">Users</div>
                                     </div>
                                     <div class="hidden md:block w-px h-8 bg-gray-200 mr-5" aria-hidden="true"></div>
                                 </div>
@@ -59,10 +56,9 @@
                                 <div class="flex items-center">
                                     <div>
                                         <div class="flex items-center">
-                                            <div class="text-3xl font-bold text-gray-800 mr-2">2m 56s</div>
-                                            <div class="text-sm font-medium text-yellow-500">+7%</div>
+                                            <div class="text-3xl font-bold text-gray-800 mr-2">{{count($members)}}</div>
                                         </div>
-                                        <div class="text-sm text-gray-500">Visit Duration</div>
+                                        <div class="text-sm text-gray-500">Subscribers</div>
                                     </div>
                                 </div>
                             </div>
